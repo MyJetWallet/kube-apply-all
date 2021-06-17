@@ -22,20 +22,20 @@ Deployment=$(find . -name deployment.yaml)
 Service=$(find . -name service.yaml)
 RBAC=$(find . -name rbac.yaml)
 
-for namespace in $Namespace
-do
-    kubectl apply -f $namespace
-done
+#for namespace in $Namespace
+#do
+#    kubectl apply -f $namespace
+#done
 
-for configmap in $Configmap
-do
-    kubectl apply -f $configmap
-done
+#for configmap in $Configmap
+#do
+#    kubectl apply -f $configmap
+#done
 
-for secret in $Secret
-do
-    kubectl apply -f $secret
-done
+#for secret in $Secret
+#do
+#    kubectl apply -f $secret
+#done
 
 for deployment in $Deployment
 do
@@ -47,9 +47,9 @@ do
     kubectl replace -f $service
 done
 
-for rbac in $RBAC
-do
-    kubectl apply -f $rbac
-done
+#for rbac in $RBAC
+#do
+#    kubectl apply -f $rbac
+#done
 
 rm /tmp/config
