@@ -39,12 +39,12 @@ done
 
 for deployment in $Deployment
 do
-    kubectl apply -f $deployment
+    kubectl replace -f $deployment
 done
 
 for service in $Service
 do
-    kubectl apply -f $service
+    kubectl replace -f $service
 done
 
 for rbac in $RBAC
