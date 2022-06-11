@@ -15,48 +15,48 @@ export KUBECONFIG=/tmp/config
 kubectl config current-context
 kubectl get nodes
 ls -la
+kubectl apply -f services --recursive
+# Dns=$(find . -name "coredns*")
+# Namespace=$(find . -name "namespace*")
+# Configmap=$(find . -name "configmap*")
+# Secret=$(find . -name secret.yaml)
+# Deployment=$(find . -name deployment.yaml)
+# Service=$(find . -name service.yaml)
+# RBAC=$(find . -name rbac.yaml)
 
-Dns=$(find . -name "coredns*")
-Namespace=$(find . -name "namespace*")
-Configmap=$(find . -name "configmap*")
-Secret=$(find . -name secret.yaml)
-Deployment=$(find . -name deployment.yaml)
-Service=$(find . -name service.yaml)
-RBAC=$(find . -name rbac.yaml)
+# for dns in $Dns
+# do
+#     kubectl apply -f $dns
+# done
 
-for dns in $Dns
-do
-    kubectl apply -f $dns
-done
+# for namespace in $Namespace
+# do
+#     kubectl apply -f $namespace
+# done
 
-for namespace in $Namespace
-do
-    kubectl apply -f $namespace
-done
+# for configmap in $Configmap
+# do
+#     kubectl apply -f $configmap
+# done
 
-for configmap in $Configmap
-do
-    kubectl apply -f $configmap
-done
+# for secret in $Secret
+# do
+#     kubectl apply -f $secret
+# done
 
-for secret in $Secret
-do
-    kubectl apply -f $secret
-done
+# for deployment in $Deployment
+# do
+#     kubectl apply -f $deployment
+# done
 
-for deployment in $Deployment
-do
-    kubectl apply -f $deployment
-done
+# for service in $Service
+# do
+#     kubectl apply -f $service
+# done
 
-for service in $Service
-do
-    kubectl apply -f $service
-done
-
-for rbac in $RBAC
-do
-    kubectl apply -f $rbac
-done
+# for rbac in $RBAC
+# do
+#     kubectl apply -f $rbac
+# done
 
 rm /tmp/config
